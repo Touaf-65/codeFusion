@@ -45,19 +45,19 @@ class _Comparable(Protocol):
 	def __ge__(self: E, other: E) -> bool: ...
 
 def next_permutation(arr: List[E]) -> bool:
-	# Find non-increasing suffix
+    # Trouver un suffixe non croissant
 	i: int = len(arr) - 1
 	while i > 0 and arr[i - 1] >= arr[i]:
 		i -= 1
 	if i <= 0:
 		return False
 	
-	# Find successor to pivot
+	# Trouver un successeur pour pivoter
 	j: int = len(arr) - 1
 	while arr[j] <= arr[i - 1]:
 		j -= 1
 	arr[i - 1], arr[j] = arr[j], arr[i - 1]
 	
-	# Reverse suffix
+	# Renverser le suffixe
 	arr[i : ] = arr[len(arr) - 1 : i - 1 : -1]
 	return True
