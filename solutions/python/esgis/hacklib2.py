@@ -34,6 +34,11 @@ def list_primality(n: int) -> List[bool]:
 				result[j] = False
 	return result
 
+# Renvoie tous les nombres premiers inférieurs ou égaux à n, par ordre croissant.
+# Par exemple : listPrimes(50) = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31,37, 41, 43, 47].
+def list_primes(n: int) -> List[int]:
+	return [i for (i, isprime) in enumerate(list_primality(n)) if isprime]
+
 
 E = TypeVar("E", bound="_Comparable")
 
